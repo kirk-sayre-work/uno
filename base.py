@@ -126,7 +126,7 @@ class Css(UnoBaseFeature):
 
     @_value.setter
     def _value(self, value):
-        print 'new css', self._attr, 'value:', value
+        print('new css', self._attr, 'value:', value)
         self.__value = value
     
     @property
@@ -134,7 +134,7 @@ class Css(UnoBaseFeature):
         return self.__attr
     @_attr.setter
     def _attr(self, value):
-        print 'new css attr:', value
+        print('new css attr:', value)
         self.__attr = value
 
     def __init__(self, attr, value, **kwargs):
@@ -189,7 +189,7 @@ class Element(UnoBaseFeature):
                 self._postcss_tag = ''
                 
     def _add_css(self, css_dict):
-        print 'css_dict:', css_dict
+        print('css_dict:', css_dict)
         for key in css_dict:
             attr_key = key.replace('-', '_')
             setattr(self, attr_key, Css(key, css_dict[key]) )
@@ -238,17 +238,17 @@ class Element(UnoBaseFeature):
     @property
     def _render(self):
         r =  self._precss_tag
-        #print 'precss: ', r
+        #print('precss: ', r)
         e = self._render_css()
-        #print 'css: ', e
+        #print('css: ', e)
         n = self._postcss_tag
-        #print 'postcss: ', n
+        #print('postcss: ', n)
         d = self._render_payload()
-        #print 'payload: ', d
+        #print('payload: ', d)
         er = self._render_elements()
-        #print 'elements: ', er
+        #print('elements: ', er)
         pls = self._closing_tag
-        #print 'closing tag: ', pls
+        #print('closing tag: ', pls)
         self.__render = r+e+n+d+er+pls + '\n'
         return self.__render.replace('\n', '').replace('\\', '')
 
@@ -300,4 +300,4 @@ class UnoBaseForm(UnoBaseFeature):
 
     def _populate_obj(self, obj):
         for field in self._fields:
-            print field._name
+            print(field._name)

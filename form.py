@@ -1,6 +1,6 @@
 
 
-from base import UnoBaseForm
+from .base import UnoBaseForm
 
 
 class UnoForm(UnoBaseForm):

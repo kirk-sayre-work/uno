@@ -13,7 +13,7 @@ def math_func(f):
     def wrapper(*args, **kwargs):
         if len(args) > 0:
             return_type = type(args[0])
-        if kwargs.has_key('return_type'):
+        if ('return_type' in kwargs):
             return_type = kwargs['return_type']
             kwargs.pop('return_type')
             return return_type(f(*args, **kwargs))

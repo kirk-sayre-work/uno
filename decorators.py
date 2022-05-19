@@ -15,7 +15,7 @@ def change_return_type(f):
     """
     @wraps(f)
     def wrapper(*args, **kwargs):
-        if kwargs.has_key('return_type'):
+        if ('return_type' in kwargs):
             return_type = kwargs['return_type']
             kwargs.pop('return_type')
             return return_type(f(*args, **kwargs))
@@ -44,9 +44,9 @@ def accessible(f):
     """
     @wraps(f)
     def wrapper(*args, **kwargs):
-        print 'KWARGS= ', kwargs
+        print('KWARGS= ', kwargs)
         setattr(args[0], kwargs['name'], args[1])
-        print "property: ", str(getattr(args[0], kwargs['name']))
+        print("property: ", str(getattr(args[0], kwargs['name'])))
         return f(*args, **kwargs)
     return wrapper
 
